@@ -1,18 +1,27 @@
 <template>
   <div id="app">
-    <Alunos/>
+    <Nav></Nav>
+    <div class="marginPrincipal">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
 <script>
-import Alunos from './components/Aluno/Alunos.vue'
+//import Alunos from "./components/Aluno/Alunos.vue";
+//import Professor from "./components/Professor/Professor";
+//import Sobre from "./components/Sobre/Sobre";
+import Nav from "./components/_nav/Nav";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Alunos
-  }
-}
+    //Alunos,
+    //Professor,
+    //Sobre,
+    Nav,
+  },
+};
 </script>
 
 <style>
@@ -24,19 +33,23 @@ body {
   display: grid;
   justify-items: center;
 }
-body, html {
+body,
+html {
   margin: 0;
   height: 100%;
 }
-#app {
-
+.marginPrincipal {
+  width: 50%;
+  margin: auto;
 }
-
+#app {
+  width: 100%;
+}
 .btn_Danger {
   background-color: red;
 }
 
-.btn{
+.btn {
   background-color: #fa4430;
   padding: 10px 20px;
   cursor: pointer;
@@ -46,7 +59,7 @@ body, html {
   border-radius: 5px;
   border-bottom: 3px solid black;
 }
-.btn:hover{
+.btn:hover {
   text-shadow: 1px 1px 1px black;
   margin-top: 3px;
   border-bottom: 1px solid black;
@@ -65,7 +78,7 @@ table tr td {
   margin-bottom: 2px;
   color: #3e5252;
 }
-table thead th{
+table thead th {
   background-color: rgb(184, 208, 216) !important;
   font-size: 1.2em;
   padding: 10px 0px;
