@@ -18,9 +18,10 @@
       "id": 1,
       "nome": "Marcus",
       "sobrenome": "Xavier",
+      "dataNasc": "01/02/1999",
       "professor": {
-        "id": 1,
-        "nome": "Vinicius"
+        "id": 2,
+        "nome": "Paula"
       }
     },
     {
@@ -42,22 +43,33 @@
       }
     },
     {
-      "nome": "Maria",
+      "id": 4,
+      "nome": "Alex",
+      "sobrenome": "Fernandes",
+      "dataNasc": "02/02/1981",
+      "professor": {
+        "id": 3,
+        "nome": "Luna"
+      }
+    },
+    {
+      "nome": "Beth",
       "sobrenome": "",
       "professor": {
         "id": 2,
         "nome": "Paula"
       },
-      "id": 4
+      "id": 5
     },
     {
-      "nome": "André",
-      "sobrenome": "",
+      "id": 6,
+      "nome": "Maria",
+      "sobrenome": "José",
+      "dataNasc": "02/05/1698",
       "professor": {
-        "id": 1,
-        "nome": "Vinicius"
-      },
-      "id": 5
+        "id": 3,
+        "nome": "Luna"
+      }
     }
   ]
 }
