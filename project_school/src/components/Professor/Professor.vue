@@ -1,6 +1,6 @@
 <template>
   <div>
-    <titulo texto="Professores" />
+    <titulo texto="Professores" btnVoltar=true />
     <table>
       <thead>
         <th>Cod.</th>
@@ -10,8 +10,12 @@
       <tbody v-if="Professores.length">
         <tr v-for="(professor, index) in Professores" :key="index">
           <td class="colPequeno">{{ professor.id }}</td>
-          <router-link :to="`/alunos/${professor.id}`" tag="td" style="cursor: pointer">
-          {{ professor.nome }} {{ professor.sobrenome }}
+          <router-link
+            :to="`/alunos/${professor.id}`"
+            tag="td"
+            style="cursor: pointer"
+          >
+            {{ professor.nome }} {{ professor.sobrenome }}
           </router-link>
           <td class="colPequeno">
             {{ professor.qtdAlunos }}
@@ -19,7 +23,13 @@
         </tr>
       </tbody>
       <tfoot v-else>
-        Nenhum Aluno Encontrado
+        <tr>
+          <td colspan="3" style="text-align: center">
+            <h5>
+              Nenhum Professor Encontrado
+            </h5>
+          </td>
+        </tr>
       </tfoot>
     </table>
   </div>
@@ -40,9 +50,9 @@ export default {
   },
   created() {
     this.$http
-      .get("http://localhost:3000/alunos")
-      .then(res => res.json())
-      .then(alunos => {
+      .get("http://localhost:5000/api/aluno")
+      .then((res) => res.json())
+      .then((alunos) => {
         this.Alunos = alunos;
         this.carregarProfessores();
       });
@@ -55,7 +65,7 @@ export default {
           id: professor.id,
           nome: professor.nome,
           qtdAlunos: this.Alunos.filter(
-            aluno => aluno.professor.id == professor.id
+            (aluno) => aluno.professor.id == professor.id
           ).length,
         };
         this.Professores[index] = professor;
@@ -63,9 +73,9 @@ export default {
     },
     carregarProfessores() {
       this.$http
-        .get("http://localhost:3000/professores")
-        .then(res => res.json())
-        .then(professor => {
+        .get("http://localhost:5000/api/professor")
+        .then((res) => res.json())
+        .then((professor) => {
           this.Professores = professor;
           this.pegarQtdAlunosPorProfessor();
         });
@@ -76,7 +86,7 @@ export default {
 
 <style scoped>
 .colPequeno {
-  text-align: center; 
+  text-align: center;
   width: 15%;
 }
 </style>
